@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useCreateJob } from '../lib/graphql/hooks';
+import { useCreateJob } from '../lib/graphql/hooks.js';
 
 function CreateJobPage() {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ function CreateJobPage() {
   const [description, setDescription] = useState('');
   const { createJob, loading } = useCreateJob();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const job = await createJob(title, description);
     console.log('job created:', job);
