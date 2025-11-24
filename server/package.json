@@ -7,19 +7,19 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "@apollo/server": "^4.9.4",
-    "better-sqlite3": "^11.1.1",
+    "@apollo/server": "^5.2.0",
+    "better-sqlite3": "^12.4.6",
     "cors": "^2.8.5",
-    "dataloader": "^2.2.2",
-    "express": "^4.18.2",
-    "express-jwt": "^8.4.1",
-    "graphql": "^16.8.1",
-    "jsonwebtoken": "^9.0.0",
-    "knex": "^3.0.1",
-    "nanoid": "^5.0.1"
+    "dataloader": "^2.2.3",
+    "express": "^5.1.0",
+    "express-jwt": "^8.5.1",
+    "graphql": "^16.12.0",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "nanoid": "^5.1.6"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.1.11"
   },
   "nodemonConfig": {
     "ext": "graphql,js"
