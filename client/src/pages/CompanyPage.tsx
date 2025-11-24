@@ -1,7 +1,6 @@
 import { useParams } from 'react-router';
 import JobList from '../components/JobList.js';
 import { useCompany } from '../lib/graphql/hooks.js';
-import { Job } from '../models/shared.js';
 
 function CompanyPage() {
   const { companyId } = useParams<{ companyId: string }>();

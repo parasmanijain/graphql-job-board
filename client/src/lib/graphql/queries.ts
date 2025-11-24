@@ -1,14 +1,8 @@
-import {
-  ApolloClient,
-  ApolloLink,
-  concat,
-  createHttpLink,
-  gql,
-  InMemoryCache,
-} from "@apollo/client";
+import { ApolloClient, ApolloLink, gql, InMemoryCache } from "@apollo/client";
+import { HttpLink } from "@apollo/client/link/http"; // updated import
 import { getAccessToken } from "../auth.js";
 
-const httpLink = createHttpLink({ uri: "http://localhost:9000/graphql" });
+const httpLink = new HttpLink({ uri: "http://localhost:9000/graphql" });
 
 const authLink = new ApolloLink((operation, forward) => {
   const accessToken = getAccessToken();
@@ -21,7 +15,7 @@ const authLink = new ApolloLink((operation, forward) => {
 });
 
 export const apolloClient = new ApolloClient({
-  link: concat(authLink, httpLink),
+  link: ApolloLink.from([authLink, httpLink]),
   cache: new InMemoryCache(),
 });
 
