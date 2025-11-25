@@ -4,6 +4,7 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware as apolloMiddleware } from "@as-integrations/express5";
 import cors from "cors";
 import { readFile } from "node:fs/promises";
+import { getUser } from "./db/users.js";
 import { createCompanyLoader } from "./db/companies.js";
 import { resolvers, GraphQLContext } from "./resolvers.js";
 import { authMiddleware, handleLogin } from "./auth.js";
@@ -27,14 +28,12 @@ async function getContext({ req }: { req: Request }): Promise<GraphQLContext> {
 
   // auth is already correctly typed via module augmentation
   if (req.auth?.sub && req.auth.email) {
+    const dbUser = await getUser(req.auth.sub);
     context.user = {
       id: req.auth.sub,
       email: req.auth.email,
-      companyId: "", // <-- You need to fetch this from DB if needed
+      companyId: dbUser ? dbUser.companyId : "",
     };
-    // Optionally, fetch full user from DB
-    // const dbUser = await getUser(req.auth.sub);
-    // context.user = dbUser ? { ...dbUser } : undefined;
   }
 
   return context;
