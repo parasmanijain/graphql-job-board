@@ -4,10 +4,10 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-  "start": "npm run build && node dist/server.js",
-  "dev": "nodemon --watch src --ext ts,graphql --exec ts-node src/server.ts",
-  "build": "tsc"
-},
+    "start": "npm run build && node dist/server.js",
+    "dev": "nodemon --watch src --ext ts,graphql --exec ts-node src/server.ts",
+    "build": "tsc"
+  },
   "dependencies": {
     "@apollo/server": "^5.2.0",
     "@as-integrations/express5": "^1.1.2",
