@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
-import JobList from '../components/JobList.js';
+import { JobList } from '../components/JobList.js';
 import { useCompany } from '../lib/graphql/hooks.js';
 
-function CompanyPage() {
+export const CompanyPage = () => {
   const { companyId } = useParams<{ companyId: string }>();
 
   // Handle missing companyId
@@ -30,5 +30,3 @@ function CompanyPage() {
     </div>
   );
 }
-
-export default CompanyPage;

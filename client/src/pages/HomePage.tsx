@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import JobList from '../components/JobList.js';
-import PaginationBar from '../components/PaginationBar.js';
+import { JobList } from '../components/JobList.js';
+import { PaginationBar } from '../components/PaginationBar.js';
 import { useJobs } from '../lib/graphql/hooks.js';
 
 const JOBS_PER_PAGE = 7;
 
-function HomePage() {
+export const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { jobs, loading, error } = useJobs(JOBS_PER_PAGE, (currentPage - 1) * JOBS_PER_PAGE);
 
@@ -29,5 +29,3 @@ function HomePage() {
     </div>
   );
 }
-
-export default HomePage;

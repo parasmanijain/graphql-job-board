@@ -2,7 +2,7 @@ import { MouseEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useCreateJob } from '../lib/graphql/hooks.js';
 
-function CreateJobPage() {
+export const CreateJobPage = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -55,5 +55,3 @@ function CreateJobPage() {
     </div>
   );
 }
-
-export default CreateJobPage;

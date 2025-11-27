@@ -7,7 +7,7 @@ interface NavBarProps {
   onLogout: () => void;
 }
 
-function NavBar({ user, onLogout }: NavBarProps) {
+export const NavBar = ({ user, onLogout }: NavBarProps) => {
   const handleLogout = () => {
     logout();
     onLogout();
@@ -43,5 +43,3 @@ function NavBar({ user, onLogout }: NavBarProps) {
     </nav>
   );
 }
-
-export default NavBar;

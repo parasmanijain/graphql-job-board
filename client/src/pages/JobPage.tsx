@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../lib/formatters.js';
 import { useJob } from '../lib/graphql/hooks.js';
 
-function JobPage() {
+export const JobPage = () => {
   const { jobId } = useParams<{ jobId: string }>();
 
   if (!jobId) {
@@ -38,5 +38,3 @@ function JobPage() {
     </div>
   );
 }
-
-export default JobPage;

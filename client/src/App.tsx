@@ -4,15 +4,15 @@ import { useNavigate } from "react-router";
 import { Route, Routes } from "react-router-dom";
 import { getUser } from "./lib/auth.js";
 import { apolloClient } from "./lib/graphql/queries.js";
-import NavBar from "./components/NavBar.js";
-import CompanyPage from "./pages/CompanyPage.js";
-import CreateJobPage from "./pages/CreateJobPage.js";
-import HomePage from "./pages/HomePage.js";
-import JobPage from "./pages/JobPage.js";
-import LoginPage from "./pages/LoginPage.js";
+import { NavBar } from "./components/NavBar.js";
+import { CompanyPage } from "./pages/CompanyPage.js";
+import { CreateJobPage } from "./pages/CreateJobPage.js";
+import { HomePage } from "./pages/HomePage.js";
+import { JobPage } from "./pages/JobPage.js";
+import { LoginPage } from "./pages/LoginPage.js";
 import { User } from "./models/shared.js";
 
-function App() {
+export const App = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(getUser());
 
@@ -41,5 +41,3 @@ function App() {
     </ApolloProvider>
   );
 }
-
-export default App;

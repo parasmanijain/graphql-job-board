@@ -1,16 +1,11 @@
-import { Link } from 'react-router-dom';
-import { formatDate } from '../lib/formatters.js';
 import { Job } from '../models/shared.js';
+import { JobItem } from './JobItem.js';
 
 interface JobListProps {
   jobs: Job[];
 }
 
-interface JobItemProps {
-  job: Job;
-}
-
-function JobList({ jobs }: JobListProps) {
+export const JobList = ({ jobs }: JobListProps) => {
   return (
     <ul className="box">
       {jobs.map((job) => (
@@ -19,18 +14,3 @@ function JobList({ jobs }: JobListProps) {
     </ul>
   );
 }
-
-function JobItem({ job }: JobItemProps) {
-  const title = job.company ? `${job.title} at ${job.company.name}` : job.title;
-
-  return (
-    <li className="media">
-      <div className="media-left has-text-grey">{formatDate(job.date)}</div>
-      <div className="media-content">
-        <Link to={`/jobs/${job.id}`}>{title}</Link>
-      </div>
-    </li>
-  );
-}
-
-export default JobList;
