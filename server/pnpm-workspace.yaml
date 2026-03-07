@@ -1,0 +1,5 @@
+onlyBuiltDependencies:
+  - '@apollo/protobufjs'
+  - '@parcel/watcher'
+  - better-sqlite3
+  - esbuild
